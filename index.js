@@ -1,0 +1,35 @@
+'use strict';
+const Twig = require('twig');
+const twig = Twig.twig;
+const path = require('path');
+const fs = require('fs-extra');
+const glob = require('glob');
+
+const config = {
+  dir: {
+    src: './src/',
+    dist: './dist'
+  }
+};
+
+const data = require('./src/data/data.json');
+
+fs.emptyDirSync(config.dir.dist);
+
+glob.sync('**/*.twig', {
+  cwd: config.dir.src
+}).forEach((file) => {
+  let html = twig({
+    namespaces: {
+      atoms: './src/atoms/',
+      molecules: './src/molecules/',
+      organisms: './src/organisms/'
+    },
+    data: fs.readFileSync(path.join(config.dir.src, file), 'utf8')
+  }).render(data);
+  
+  let newFilePath = path.join(config.dir.dist, file.replace('twig', 'html'));
+  
+  fs.mkdirsSync(path.dirname(newFilePath));
+  fs.writeFileSync(newFilePath, html);
+});
