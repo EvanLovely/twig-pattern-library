@@ -1,0 +1,14 @@
+{
+    "name": "evan-lovely/twig-pattern-library",
+    "description": "A prototyping tool in Twig",
+    "require": {
+        "twig/extensions": "^1.3",
+        "twig/twig": "^1.24"
+    },
+    "authors": [
+        {
+            "name": "Evan Lovely",
+            "email": "evan@evanlovely.com"
+        }
+    ]
+}
