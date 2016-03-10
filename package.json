@@ -5,14 +5,19 @@
   "main": "index.js",
   "scripts": {
     "build": "node index.js",
-    "start": "npm run build"
+    "serve": "browser-sync start --server dist/ --directory ",
+    "watch:src": "nodemon --watch src/ --ext twig,json --exec 'npm run build' ",
+    "start": "npm run build && (npm run serve & npm run watch:src)"
   },
   "dependencies": {
     "glob": "^7.0.3",
     "twig": "^0.8.8",
     "fs-extra": "^0.26.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "nodemon": "^1.9.1"
+  },
   "author": "",
   "license": "ISC"
 }
