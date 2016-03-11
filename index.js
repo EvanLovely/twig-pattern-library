@@ -34,15 +34,6 @@ glob.sync('**/*.twig', {
     }
     
     let html = sh(`./bin/compile-twig.php ${file} '${JSON.stringify(data)}'`);
-    
-    //let html = twig({
-    //  namespaces: {
-    //    atoms: './src/atoms/',
-    //    molecules: './src/molecules/',
-    //    organisms: './src/organisms/'
-    //  },
-    //  data: fs.readFileSync(path.join(config.dir.src, file), 'utf8')
-    //}).render(data);
 
     let newFilePath = path.join(config.dir.dist, file.replace('twig', 'html'));
 
