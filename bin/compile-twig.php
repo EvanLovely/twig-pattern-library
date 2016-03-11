@@ -2,16 +2,16 @@
 <?php
 
 // Examples:
-// ./compile-twig.php '@organisms/site-header-with-search.twig' '{"text": "from cli"}'
-// ./compile-twig.php '@atoms/button.twig' '{"text": "from cli"}'
+// ./bin/compile-twig.php '@organisms/site-header-with-search.twig' '{"text": "from cli"}'
+// ./bin/compile-twig.php '@atoms/button.twig' '{"text": "from cli"}'
 
-require_once '../vendor/autoload.php';
-$loader = new Twig_Loader_Filesystem('../src');
-$loader->addPath('../src/atoms', 'atoms');
-$loader->addPath('../src/molecules', 'molecules');
-$loader->addPath('../src/organisms', 'organisms');
+require_once './vendor/autoload.php';
+$loader = new Twig_Loader_Filesystem('./src');
+$loader->addPath('./src/atoms', 'atoms');
+$loader->addPath('./src/molecules', 'molecules');
+$loader->addPath('./src/organisms', 'organisms');
 $twig = new Twig_Environment($loader, array(
-    'cache' => 'cache',
+    'cache' => './bin/cache',
 ));
 
 $template = $twig->loadTemplate($argv[1]);

@@ -4,6 +4,7 @@ const twig = Twig.twig;
 const path = require('path');
 const fs = require('fs-extra');
 const glob = require('glob');
+const execSync = require('child_process').execSync;
 
 const config = {
   dir: {
@@ -13,6 +14,10 @@ const config = {
 };
 
 const globalData = require('./src/data/data.json');
+
+function sh (cmd) {
+  return execSync(cmd, {encoding: 'utf8'});
+}
 
 fs.emptyDirSync(config.dir.dist);
 
@@ -28,14 +33,16 @@ glob.sync('**/*.twig', {
       Object.assign(data, JSON.parse(localData));
     }
     
-    let html = twig({
-      namespaces: {
-        atoms: './src/atoms/',
-        molecules: './src/molecules/',
-        organisms: './src/organisms/'
-      },
-      data: fs.readFileSync(path.join(config.dir.src, file), 'utf8')
-    }).render(data);
+    let html = sh(`./bin/compile-twig.php ${file} '${JSON.stringify(data)}'`);
+    
+    //let html = twig({
+    //  namespaces: {
+    //    atoms: './src/atoms/',
+    //    molecules: './src/molecules/',
+    //    organisms: './src/organisms/'
+    //  },
+    //  data: fs.readFileSync(path.join(config.dir.src, file), 'utf8')
+    //}).render(data);
 
     let newFilePath = path.join(config.dir.dist, file.replace('twig', 'html'));
 
