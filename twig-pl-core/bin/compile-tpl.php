@@ -24,10 +24,19 @@ $globalData = $yamlParser->parse(file_get_contents(__DIR__.'/../src/data/data.ym
 $finder->files()->in(__DIR__.'/../src')->name('*.twig');
 
 foreach ($finder as $file) {
-
   $path = $file->getRelativePathname();
+  
+  $localDataPath = $srcPath.str_replace(".twig", ".yml", $path);
+  if ($fs->exists($localDataPath)) {
+    $localData = $yamlParser->parse(file_get_contents($localDataPath));
+    $data = array_merge($globalData,$localData);
+  }
+  else {
+    $data = $globalData;
+  }
+
   $template = $twig->loadTemplate($path);
-  $html = $template->render($globalData);
+  $html = $template->render($data);
   $fileDest = '../dist/' . str_replace(".twig", ".html", $path);
 
   try {
