@@ -2,10 +2,16 @@
 
 Components are in `./src`; it gets built to `./dist`.
 
-Install deps:
+# Requirements
 
-		npm install
-		composer install
+- npm
+- composer
+
+# Installation
+
+Install dependencies:
+
+		npm install # This will run `composer install` after
 
 To clean, build, serve and watch:
 

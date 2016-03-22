@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node index.js",
+    "postinstall": "composer install",
     "serve": "browser-sync start --server dist/ --directory ",
     "watch:src": "nodemon --watch src/ --ext twig,json --exec 'npm run build' ",
     "start": "npm run build && (npm run serve & npm run watch:src)"
