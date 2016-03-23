@@ -16,3 +16,7 @@ Install dependencies:
 To clean, build, serve and watch:
 
 		npm start
+
+To simply clean and compile:
+
+		npm run compile

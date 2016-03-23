@@ -4,12 +4,12 @@
   "description": "",
   "main": "bin/compile-tpl.php",
   "scripts": {
-    "build": "rm -rf dist && cd bin && php compile-tpl.php",
+    "compile": "rm -rf dist && cd bin && php compile-tpl.php",
     "postinstall": "composer install",
-    "test": "npm run build",
+    "test": "npm run compile",
     "serve": "browser-sync start --server dist/ --directory --port 3023",
-    "watch:src": "nodemon --watch src/ --ext twig,yml --exec 'npm run build && browser-sync reload --port 3023' ",
-    "start": "npm run build && (npm run serve & npm run watch:src)"
+    "watch:src": "nodemon --watch src/ --ext twig,yml --exec 'npm run compile && browser-sync reload --port 3023' ",
+    "start": "npm run compile && (npm run serve & npm run watch:src)"
   },
   "dependencies": {
     "browser-sync": "^2.11.1",
