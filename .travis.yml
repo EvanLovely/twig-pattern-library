@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - '0.12'
+  - '4.2'
+  - 'stable'
+install:
+  - cd twig-pl-core && npm install
+script:
+  - cd twig-pl-core && npm test
