@@ -1,20 +1,7 @@
-language: node_js
-node_js:
-  - '0.12'
-  - '4.2'
-  - 'stable'
-before_install:
-  - curl -sS https://getcomposer.org/installer | php
-  - mv composer.phar composer
-  - export PATH=$PATH:$PWD/
-  - php --version
-  - composer --version
+language: php
+php:
+  - 5.5
 install:
   - cd twig-pl-core && npm install # we have a `postinstall` hook that runs `composer install`
 script:
-  - pwd
   - npm test
-addons:
-  apt:
-    packages:
-      - php
