@@ -11,6 +11,7 @@ $yamlParser = new Parser();
 
 // Getting config file
 // The first argument to this script is a path to a configuration yaml file; relative to CWD.
+chdir(getcwd());
 $configFilePath = $argv[1];
 $configFileDir = dirname($configFilePath);
 $config = $yamlParser->parse(file_get_contents($configFilePath));
