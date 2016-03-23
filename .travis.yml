@@ -3,7 +3,17 @@ node_js:
   - '0.12'
   - '4.2'
   - 'stable'
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq php5
 install:
-  - cd twig-pl-core && npm install
+  - cd twig-pl-core
+  - alias composer="php composer.phar"
+  - curl -sS https://getcomposer.org/installer | php
+  - npm install # we have a `postinstall` hook that runs `composer install`
+before_script:
+  - php --version
+  - composer --version
 script:
-  - cd twig-pl-core && npm test
+  - pwd
+  - npm test
