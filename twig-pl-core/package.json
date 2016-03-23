@@ -6,7 +6,7 @@
   "scripts": {
     "compile": "rm -rf dist && cd bin && php compile-tpl.php",
     "postinstall": "composer install",
-    "test": "npm run compile",
+    "test": "mocha tests/**/*.test.js",
     "serve": "browser-sync start --server dist/ --directory --port 3023",
     "watch:src": "nodemon --watch src/ --ext twig,yml --exec 'npm run compile && browser-sync reload --port 3023' ",
     "start": "npm run compile && (npm run serve & npm run watch:src)"
