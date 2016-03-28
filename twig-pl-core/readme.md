@@ -20,3 +20,9 @@ To clean, build, serve and watch:
 To simply clean and compile:
 
 		npm run compile
+
+# Testing
+
+To run tests:
+
+		npm test

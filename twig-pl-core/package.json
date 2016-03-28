@@ -2,17 +2,18 @@
   "name": "twig-pattern-library",
   "version": "1.0.0",
   "description": "",
-  "main": "bin/compile-tpl.php",
+  "main": "index.js",
   "scripts": {
     "compile": "rm -rf dist && cd bin && php compile-tpl.php",
     "postinstall": "composer install",
-    "test": "npm run compile",
+    "test": "mocha tests/**/*.test.js",
     "serve": "browser-sync start --server dist/ --directory --port 3023",
     "watch:src": "nodemon --watch src/ --ext twig,yml --exec 'npm run compile && browser-sync reload --port 3023' ",
     "start": "npm run compile && (npm run serve & npm run watch:src)"
   },
   "dependencies": {
     "browser-sync": "^2.11.1",
+    "mocha": "^2.4.5",
     "nodemon": "^1.9.1"
   },
   "devDependencies": {

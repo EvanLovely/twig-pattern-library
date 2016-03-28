@@ -1,0 +1,9 @@
+language: php
+php:
+  - 5.5
+before_install:
+  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && source ~/.nvm/nvm.sh && nvm install 4.2
+install:
+  - cd twig-pl-core && npm install # we have a `postinstall` hook that runs `composer install`
+script:
+  - npm test
