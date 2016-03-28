@@ -9,5 +9,5 @@ function sh (cmd) {
 module.exports = function(configFilePath) {
   var pathToCompile = path.resolve(__dirname, 'bin/compile-tpl.php');
   var command = 'php ' + path.relative(process.cwd(), pathToCompile) + ' ' + configFilePath;
-  sh(command);
+  return sh(command);
 };

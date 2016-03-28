@@ -64,3 +64,5 @@ foreach ($finder as $file) {
   }
 
 }
+
+print count($finder) . ' files from "' . $config['src'] . '" have been compiled into "' . $config['dist'] . '"';

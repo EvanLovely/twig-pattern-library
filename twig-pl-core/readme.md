@@ -1,7 +1,5 @@
 # Rendering Twig Like Pattern Lab
 
-Components are in `./src`; it gets built to `./dist`.
-
 # Requirements
 
 - npm
@@ -20,6 +18,25 @@ To clean, build, serve and watch:
 To simply clean and compile:
 
 		npm run compile
+
+# CLI Usage
+
+To setup a globally installed command line compile utility; run this first:
+
+		npm link
+
+Now, you can run this from anywhere:
+
+		twig-pattern-library config.yml
+
+The `config.yml` file should contain this content and all paths are relative from that config file:
+
+```yml
+src: src/
+dist: dist/
+globalData:
+  - data.yml
+```
 
 # Testing
 

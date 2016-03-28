@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": "cli.js",
   "scripts": {
     "compile": "rm -rf dist && cd bin && php compile-tpl.php",
     "postinstall": "composer install",
