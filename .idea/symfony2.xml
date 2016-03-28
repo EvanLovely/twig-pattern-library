@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Symfony2PluginSettings">
+    <option name="pathToTranslation" value="twig-pl-core/app/cache/dev/translations" />
+    <option name="directoryToWeb" value="twig-pl-core/web" />
+    <option name="directoryToApp" value="twig-pl-core/app" />
+    <option name="pluginEnabled" value="true" />
+  </component>
+</project>

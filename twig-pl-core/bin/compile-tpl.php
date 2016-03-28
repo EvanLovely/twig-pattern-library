@@ -1,12 +1,12 @@
 <?php
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Yaml\Parser;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
-$srcPath = __DIR__.'/../src/';
+$srcPath = __DIR__ . '/../patterns/';
 
 $fs = new Filesystem();
 $yamlParser = new Parser();
@@ -19,9 +19,9 @@ $twig = new Twig_Environment($loader, array(
   'cache' => './cache',
 ));
 
-$globalData = $yamlParser->parse(file_get_contents(__DIR__.'/../src/data/data.yml'));
+$globalData = $yamlParser->parse(file_get_contents(__DIR__ . '/../patterns/data/data.yml'));
 
-$finder->files()->in(__DIR__.'/../src')->name('*.twig');
+$finder->files()->in(__DIR__ . '/../patterns')->name('*.twig');
 
 foreach ($finder as $file) {
   $path = $file->getRelativePathname();
